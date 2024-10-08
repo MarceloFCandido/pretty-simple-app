@@ -28,6 +28,6 @@ services:
     cron: '*/10 * * * *'
 
 build:
-	method: docker
-	context: ./
-	dockerfile: ./Dockerfile
+  method: docker
+  context: ./
+  dockerfile: ./Dockerfile
