@@ -5,7 +5,7 @@ services:
   - name: web
     type: web
     port: 3000
-    cpuCores: 0.6
+    cpuCores: 0.5
     ramMegabytes: 1024
     autoscaling:
       enabled: false
