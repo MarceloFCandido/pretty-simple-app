@@ -1,34 +1,35 @@
-version: v2
+build:
+  context: ./
+  dockerfile: ./Dockerfile
+  method: docker
+
 name: pretty-simple-app
 
 services:
-  - name: web
-    type: web
-    port: 3000
-    cpuCores: 0.5
-    ramMegabytes: 1024
-    autoscaling:
+  - autoscaling:
       enabled: false
-    private: false
+    cpuCores: 0.5
     domains: []
     healthCheck:
       enabled: false
     instances: 2
-  - name: worker
-    type: worker
-    run: bash worker/worker.sh
-    cpuCores: 0.3
-    ramMegabytes: 100
+    name: web
+    port: 3000
+    private: false
+    ramMegabytes: 1024
+    type: web
+  - cpuCores: 0.3
     instances: 2
-  - name: job
-    type: job
-    run: bash job/job.sh
-    allowConcurrent: false
-    cpuCores: 0.1
+    name: worker
     ramMegabytes: 100
+    run: bash worker/worker.sh
+    type: worker
+  - allowConcurrent: false
+    cpuCores: 0.1
     cron: '*/1 * * * *'
+    name: job
+    ramMegabytes: 100
+    run: bash job/job.sh
+    type: job
 
-build:
-  method: docker
-  context: ./
-  dockerfile: ./Dockerfile
+version: v2
