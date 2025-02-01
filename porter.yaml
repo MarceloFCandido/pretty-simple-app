@@ -10,7 +10,13 @@ envGroups:
   - test
 name: pretty-simple-app
 services:
-  - cpuCores: 0.3
+  - autoscaling:
+      cpuThresholdPercent: 15
+      enabled: true
+      maxInstances: 2
+      memoryThresholdPercent: 15
+      minInstances: 1
+    cpuCores: 0.3
     instances: 1
     name: web
     port: 3000
