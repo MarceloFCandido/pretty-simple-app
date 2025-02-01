@@ -20,7 +20,7 @@ services:
     instances: 1
     name: web
     port: 3000
-    ramMegabytes: 300
+    ramMegabytes: 400
     run: ''
     sleep: false
     terminationGracePeriodSeconds: 60
