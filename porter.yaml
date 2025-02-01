@@ -1,31 +1,32 @@
 autoRollback:
   enabled: false
-
 build:
   context: ./
   dockerfile: ./Dockerfile
   method: docker
-
 efsStorage:
   enabled: false
-
 envGroups:
   - test
-
 name: pretty-simple-app
-
 services:
-  - cpuCores: 0.5
-    instances: 2
+  - autoscaling:
+      cpuThresholdPercent: 15
+      enabled: true
+      maxInstances: 2
+      memoryThresholdPercent: 15
+      minInstances: 1
+    cpuCores: 0.3
+    instances: 1
     name: web
     port: 3000
-    ramMegabytes: 1024
+    ramMegabytes: 300
     run: ''
     sleep: false
     terminationGracePeriodSeconds: 60
     type: web
-  - cpuCores: 0.3
-    instances: 2
+  - cpuCores: 0.1
+    instances: 1
     name: worker
     ramMegabytes: 100
     run: bash worker/worker.sh
@@ -41,5 +42,4 @@ services:
     terminationGracePeriodSeconds: 30
     timeoutSeconds: 3600
     type: job
-
 version: v2
