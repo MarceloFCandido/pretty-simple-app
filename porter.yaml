@@ -16,11 +16,11 @@ services:
       maxInstances: 2
       memoryThresholdPercent: 15
       minInstances: 1
-    cpuCores: 0.3
+    cpuCores: 0.1
     instances: 1
     name: web
     port: 3000
-    ramMegabytes: 400
+    ramMegabytes: 200
     run: ''
     sleep: false
     terminationGracePeriodSeconds: 60
