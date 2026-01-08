@@ -6,13 +6,11 @@ build:
   method: docker
 efsStorage:
   enabled: false
-envGroups:
-  - test
 name: pretty-simple-app
 services:
   - autoscaling:
       cpuThresholdPercent: 15
-      enabled: true
+      enabled: false
       maxInstances: 2
       memoryThresholdPercent: 15
       minInstances: 2
@@ -23,12 +21,12 @@ services:
     ramMegabytes: 200
     run: ''
     sleep: false
-    terminationGracePeriodSeconds: 60
+    terminationGracePeriodSeconds: 30
     type: web
   - cpuCores: 0.1
     instances: 1
     name: worker
-    ramMegabytes: 100
+    ramMegabytes: 128
     run: bash worker/worker.sh
     sleep: false
     terminationGracePeriodSeconds: 30
@@ -36,7 +34,7 @@ services:
   - cpuCores: 0.1
     cron: '*/1 * * * *'
     name: job
-    ramMegabytes: 100
+    ramMegabytes: 128
     run: bash job/job.sh
     sleep: false
     terminationGracePeriodSeconds: 30
