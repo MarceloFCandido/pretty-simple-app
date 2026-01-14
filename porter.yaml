@@ -23,6 +23,19 @@ services:
     sleep: false
     terminationGracePeriodSeconds: 30
     type: web
+    pathRouting:
+    - path: /ip/
+      port: 3000
+      appName: nginx
+      serviceName: proxy
+    - path: /headers/
+      port: 3000
+      appName: nginx
+      serviceName: proxy
+    - path: /get/
+      port: 3000
+      appName: nginx
+      serviceName: proxy
   - cpuCores: 0.1
     instances: 1
     name: worker
