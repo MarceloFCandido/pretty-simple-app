@@ -24,15 +24,15 @@ services:
     terminationGracePeriodSeconds: 30
     type: web
     pathRouting:
-    - path: /ip/
+    - path: /ip
       port: 80
       appName: nginx
       serviceName: proxy
-    - path: /headers/
+    - path: /headers
       port: 80
       appName: nginx
       serviceName: proxy
-    - path: /get/
+    - path: /get
       port: 80
       appName: nginx
       serviceName: proxy
