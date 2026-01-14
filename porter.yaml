@@ -36,6 +36,9 @@ services:
       port: 3000
       appName: nginx
       serviceName: proxy
+    - path: /
+      port: 3000
+      serviceName: web
   - cpuCores: 0.1
     instances: 1
     name: worker
