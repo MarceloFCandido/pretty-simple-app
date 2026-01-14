@@ -25,19 +25,19 @@ services:
     type: web
     pathRouting:
     - path: /ip/
-      port: 3000
+      port: 80
       appName: nginx
       serviceName: proxy
     - path: /headers/
-      port: 3000
+      port: 80
       appName: nginx
       serviceName: proxy
     - path: /get/
-      port: 3000
+      port: 80
       appName: nginx
       serviceName: proxy
     - path: /
-      port: 3000
+      port: 80
       serviceName: web
   - cpuCores: 0.1
     instances: 1
