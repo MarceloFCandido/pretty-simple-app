@@ -14,7 +14,7 @@ services:
       maxInstances: 2
       memoryThresholdPercent: 15
       minInstances: 2
-    cpuCores: 0.001
+    cpuCores: 0.1
     domains:
       - name: web-13240-8345dd30-vo7207rz.onporter.run
     instances: 1
