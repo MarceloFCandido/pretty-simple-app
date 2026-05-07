@@ -30,3 +30,4 @@ name: Deploy to pretty-simple-app
   push:
     branches:
       - master
+  workflow_dispatch: {}
